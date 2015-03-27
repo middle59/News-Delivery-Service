@@ -1,16 +1,15 @@
 <?php
-        require_once("Connect.php");
+        error_reporting(E_All);
+        ini_set('display_errors', '1');
+
+        require_once("../database/Connect.php");
         $dbh = ConnectDB();
 	
         if (isset($_POST['email']))
         {
                 try
                 {
-                        $query = "SELECT email, username, user_id, password " .
-                                "FROM wk_users " .
-                                "WHERE email= :email " .
-
-			    "LIMIT 1";
+                        $query = "SELECT * " . "FROM nds_users " . "WHERE email= :email " . "LIMIT 1";
 
                         $stmt = $dbh->prepare($query);
 
@@ -22,8 +21,7 @@
                         $howmany = count($result);
 			
 			$username = $result[0]->username;
-			$user_id = $result[0]->user_id;
-
+			$user_id = $result[0]->user_id; 
 
                         if ($howmany != 1)
                         {
