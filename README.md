@@ -43,6 +43,6 @@ Prototype Files:
 To access the login page, direct to ./index.php
 To access the dashboard page, direct to ./Home/Delivery/index.php
 
-Other Notes:
+Other Notes: 
 
 Included in the current directory are two shortcuts to view both pages hosted on Rowan University's Elvis server.
