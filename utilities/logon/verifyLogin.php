@@ -6,7 +6,7 @@
         error_reporting(E_All);
         ini_set('display_errors', '1');
 
-        require_once("../database/Connect.php");
+        require_once("../database/Connect.php"); //Are we already connected if we set this in another file?
         $dbh = ConnectDB();
 	
         function verifyLogin($username, $hashPass)

@@ -54,14 +54,14 @@
 		    		<div class="row">
 		    			<div class="col-md-3">
 		    				<div class="container">
-								<!-- 'Post' Action: perform actions from '../util/verifyAdmin.php' to check if entered user information is valid on submit--> 
-								<form name="adminlogin" class="form-horizontal" method="post" action="../util/verifyAdmin.php">
+								<!-- 'Post' Action: perform actions from 'utilities/logon/Login.php' to check if entered user information is valid on submit--> 
+								<form name="adminlogin" class="form-horizontal" method="post" action="utilities/logon/Login.php">
 										 
 										<!-- Username field -->
 										<div class="row">
 											 <div class="form-group">
 												<div class="col-md-4">
-													<input  type="text" class="form-control " name ="username" id="username" placeholder="Username" maxlength="50" size="30">
+													<input  type="text" class="form-control " name ="username" id="username" placeholder="Username" maxlength="50" size="30" required>
 												</div>
 												<div class="col-md-2"><span id="nameValidArea"></span>
 												</div>
@@ -72,7 +72,7 @@
 										<div class="row">
 											<div class="form-group">
 												<div class="col-md-4">				
-											  		<input  type="password" class="form-control" name ="password" id="password" placeholder="Password" maxlength="80" size="30">
+											  		<input  type="password" class="form-control" name ="password" id="password" placeholder="Password" maxlength="80" size="30" required>
 												</div>
 												<div class="col-md-2"><span id="password"></span>
 												</div>
