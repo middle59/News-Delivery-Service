@@ -5,17 +5,14 @@
         */
         error_reporting(E_All);
         ini_set('display_errors', '1');
-
-        require_once("../database/Connect.php"); //Are we already connected if we set this in another file?
-        $dbh = ConnectDB();
 	
-        function verifyLogin($username, $hashPass)
+        function verifyLogin($Username, $HashPass, $dbh)
         {
                 try
                 {
-                        $query = "SELECT * " . "FROM nds_users " . "WHERE Username= :username " . "LIMIT 1";
+                        $query = "SELECT * " . "FROM nds_user " . "WHERE Username= :Username " . "LIMIT 1";
                         $stmt = $dbh->prepare($query);
-                        $stmt->bindParam('username', $username, PDO::PARAM_STR);
+                        $stmt->bindParam('Username', $Username, PDO::PARAM_STR);
                         $stmt->execute();
                         $result = $stmt->fetchAll(PDO::FETCH_OBJ);
 
@@ -24,7 +21,7 @@
                                 return false;
                         }
 
-                        if (password_verify($hashPass, $result[0]->password))
+                        if (md5($HashPass) == $result[0]->HashPass)
                         {
                                 return true;
                         }
