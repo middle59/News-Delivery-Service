@@ -1,55 +1,43 @@
 <?php
+        /*Verifies a user's login by taking in variables for thier username
+        *And password.
+        *Returns a boolean of the success.
+        */
         error_reporting(E_All);
         ini_set('display_errors', '1');
 
         require_once("../database/Connect.php");
         $dbh = ConnectDB();
 	
-        if (isset($_POST['email']))
+        function verifyLogin($username, $hashPass)
         {
                 try
                 {
-                        $query = "SELECT * " . "FROM nds_users " . "WHERE email= :email " . "LIMIT 1";
-
+                        $query = "SELECT * " . "FROM nds_users " . "WHERE Username= :username " . "LIMIT 1";
                         $stmt = $dbh->prepare($query);
-
-                        $email = $_POST['email'];
-                        $stmt->bindParam('email', $email, PDO::PARAM_STR);
+                        $stmt->bindParam('username', $username, PDO::PARAM_STR);
                         $stmt->execute();
                         $result = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-                        $howmany = count($result);
-			
-			$username = $result[0]->username;
-			$user_id = $result[0]->user_id; 
-
-                        if ($howmany != 1)
+                        if (count($result) != 1) //Username was not found in database, if found there should only be one instance
                         {
-                                header("Location: ../login/home.php?failed=true");
-			}
+                                return false;
+                        }
+
+                        if (password_verify($hashPass, $result[0]->password))
+                        {
+                                return true;
+                        }
                         else
                         {
-                                if (password_verify($_POST['password'], $result[0]->password))
-                                {
-					session_start();
-					setcookie("username", $username, time() + 60 * 60 * 24, "/");
-					setcookie("user_id", $user_id, time() + 60 * 60 * 24, "/");
-                                        header("Location: ../Kingdom/Kingdom.php");
-                                }
-                                else
-                                {
-                                        header("Location: ../login/home.php?failed=true");
-                                }
+                                return false; //Password didnt match
                         }
                 }
                 catch (PDOException $e)
                 {
-                        die ('PDO error' . $e->getMessage());
+                        die ('PDO error' . $e->getMessage()); //Query Error
                 }
-        }
-        else
-        {
-                echo "<p><i>(Error issue!)</i></p>\n";
+
         }
 ?>
 
