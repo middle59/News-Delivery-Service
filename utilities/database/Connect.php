@@ -20,8 +20,10 @@ function ConnectDB() {
     try {
         $dbh = new PDO("mysql:host=$hostname;dbname=$dbname",
                        $username, $password);
+        //echo "<p>We established dbh.</p>";
 
     } catch(PDOException $e) {
+        echo $e->getMessage();
         die ('PDO error in "ConnectDB()": ' . $e->getMessage() );
     }
 

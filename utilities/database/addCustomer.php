@@ -7,8 +7,6 @@
         require_once("./Connect.php");
         $dbh = ConnectDB();
 
-        echo "<p>pass<p>";
-
         function addCustomer($Name, $Address, $Zip, $Phone, $dbh)
         {
                 try
@@ -37,7 +35,7 @@
                 }
                 catch (PDOException $e)
                 {
-                        header("Location: ../../Home/Agent/Customer-Management/index.php??customerAdded='false'");
+                        header("Location: ../../Home/Agent/Customer-Management/index.php?customerAdded='false'");
                         die ('PDO error' . $e->getMessage()); //Query Error
                 }
 

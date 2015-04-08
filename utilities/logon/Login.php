@@ -1,6 +1,6 @@
 <?php
         require_once("./verifyLogin.php");
-        require_once("../database/Connect.php"); //Are we already connected if we set this in another fi
+        require_once("../database/Connect.php");
         $dbh = ConnectDB();
         
         if (verifyLogin($_POST['username'], $_POST['password'], $dbh) == true)

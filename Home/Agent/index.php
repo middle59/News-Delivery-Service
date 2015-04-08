@@ -28,30 +28,9 @@
 
 
     <!-- START NAVIGATION - HEADER -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">News Delivery System</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Help</a></li>
-            <li><a href="#">Log Out</a></li>
-          </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
-        </div>
-      </div>
-    </nav>
+    <?php
+        require_once("./static/navigation-header.php")
+    ?>
     <!-- END NAVIGATION - HEADER -->
 
     <!-- Contains and organizes the remaining page -->
@@ -69,8 +48,10 @@
             <li><a href="">Route</a></li>
           </ul>
           <ul class="nav nav-sidebar">
+            <li><a href="">Route Management</a></li>
             <li><a href="">Delivery Account Management</a></li>
             <li><a href="./Customer-Management">Customer Management</a></li>
+            <li><a href="./Publication-Management">Publication Management</a></li>
           </ul>
         </div>
 	<!-- END NAVIGATION - SIDEBAR -->
