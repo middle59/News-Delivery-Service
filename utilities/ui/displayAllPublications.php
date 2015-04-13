@@ -88,7 +88,7 @@
         }
         else
         {
-                echo "<p>No publications were found in the database.<p>";
+                echo "<td>No publications were found in the database.</td>";
         }
         ?>
                 </tbody>

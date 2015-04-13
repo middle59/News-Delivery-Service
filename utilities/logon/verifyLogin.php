@@ -3,8 +3,6 @@
         *And password.
         *Returns a boolean of the success.
         */
-        error_reporting(E_All);
-        ini_set('display_errors', '1');
 	
         function verifyLogin($Username, $HashPass, $dbh)
         {
@@ -21,7 +19,7 @@
                                 return false;
                         }
 
-                        if (md5($HashPass) == $result[0]->HashPass)
+                        if ($HashPass == $result[0]->HashPass)
                         {
                                 return true;
                         }

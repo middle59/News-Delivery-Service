@@ -48,8 +48,8 @@
             <li><a href="">Route</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="">Route Management</a></li>
-            <li><a href="">Delivery Account Management</a></li>
+            <li><a href="../Route-Management">Route Management</a></li>
+            <li><a href="../Delivery-Account-Management/">Delivery Account Management</a></li>
             <li ><a href="../Customer-Management/">Customer Management</a></li>
             <li class="active"><a href="#">Publication Management<span class="sr-only">(current)</span></a></li>
           </ul>

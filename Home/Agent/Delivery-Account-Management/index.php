@@ -1,7 +1,7 @@
 <!doctype html>
 <!-- Software Engineering Team 8 -->
 <!-- Last Update: 2/18/15 -->
-<!-- Agent Dashboard Page | Customer Management -->
+<!-- Agent Dashboard Page | Delivery-Account Management -->
 
 <html lang="en">
   <head>
@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Agent | Customer Mangement</title>
+    <title>Agent | Delivery-Account Mangement</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../../css/bootstrap.min.css" rel="stylesheet">
@@ -48,59 +48,75 @@
             <li><a href="">Route</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="../Route-Management">Route Management</a></li>
-            <li><a href="../Delivery-Account-Management/">Delivery Account Management</a></li>
-            <li class="active"><a href="#">Customer Management <span class="sr-only">(current)</span></a></li>
+            <li><a href="../Route-Management/">Route Management</a></li>
+            <li class="active"><a href="">Delivery Account Management <span class="sr-only">(current)</span></a></li>
+            <li><a href="../Customer-Management/">Customer Management</a></li>
             <li><a href="../Publication-Management/">Publication Management</a></li>
           </ul>
         </div>
 	<!-- END NAVIGATION - SIDEBAR -->
 
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Customer Management</h1>
+          <h1 class="page-header">Delivery-Account Management</h1>
           
-          <h2 class="sub-header">Add Customer</h2>
+          <h2 class="sub-header">Create a New Account for Deliverers</h2>
 	         <!-- START FORUM - ADD CUSTOMER -->
-           <form name="addCustomer" class="form-horizontal" method="post" action="../../../utilities/database/addCustomer.php">
+           <form name="createDeliveryAccount" class="form-horizontal" method="post" action="../../../utilities/database/createDeliveryAccount.php">
                      
-                    <!-- Name field -->
+                    <!-- Username field -->
                     <div class="row">
                        <div class="form-group">
                         <div class="col-md-4">
-                          <input  type="text" class="form-control " name ="customerName" id="customerName" placeholder="Full Name" maxlength="50" size="30" required>
+                          <input  type="text" class="form-control " name ="accountName" id="accountName" placeholder="Username" maxlength="50" size="30" required>
                         </div>
                         <div class="col-md-2"><span id="nameValidArea"></span>
                         </div>
                       </div> 
                     </div>
 
-                    <!-- Address field -->
+                    <!-- Email field -->
                     <div class="row">
                        <div class="form-group">
                         <div class="col-md-4">
-                          <input  type="text" class="form-control " name ="customerAddress" id="customerAddress" placeholder="Address" maxlength="50" size="30" required>
+                          <input  type="text" class="form-control " name ="accountEmail" id="accountEmail" placeholder="Email" maxlength="50" size="30" required>
                         </div>
                         <div class="col-md-2"><span id="nameValidArea"></span>
                         </div>
                       </div> 
                     </div>
 
-                    <!-- Zip Code field -->
+                    <!-- Password field -->
                     <div class="row">
                        <div class="form-group">
                         <div class="col-md-4">
-                          <input  type="text" class="form-control " name ="customerZip" id="customerZip" placeholder="Zip Code" maxlength="50" size="30" required>
+                          <input  type="password" class="form-control " name ="accountPassword" id="accountPassword" placeholder="Password" maxlength="50" size="30" required>
                         </div>
                         <div class="col-md-2"><span id="nameValidArea"></span>
                         </div>
                       </div> 
                     </div>
 
-                    <!-- Phone Number field -->
+                    <!-- Verify Password field -->
                     <div class="row">
                        <div class="form-group">
                         <div class="col-md-4">
-                          <input  type="text" class="form-control " name ="customerPhone" id="customerPhone" placeholder="Phone Number" maxlength="50" size="30" required>
+                          <input  type="password" class="form-control " name ="verifyAccountPassword" id="verifyAccountPassword" placeholder="Verify Password" maxlength="50" size="30" required>
+                        </div>
+                        <div class="col-md-2"><span id="nameValidArea"></span>
+                        </div>
+                      </div> 
+                    </div>
+
+                    <br>
+                    <h3>Account User Info<h3>
+                    <hr>
+                    <br>
+
+                    <!-- Deliverer's Name field -->
+                    <div class="row">
+                       <div class="form-group">
+                        <div class="col-md-4">
+                          <input  type="text" class="form-control " name ="delName" id="delName" placeholder="Full Name" maxlength="50" size="30" required>
                         </div>
                         <div class="col-md-2"><span id="nameValidArea"></span>
                         </div>
@@ -109,15 +125,15 @@
 
                     <!--Triggers 'Post' action -->
                     <div class="col-md-4 text-center">
-                      <input type="submit" class="btn btn-success" value="Add">
+                      <input type="submit" class="btn btn-success" value="Create">
                     </div>
                 </form>
                 <!-- END FORUM - ADD CUSTOMER -->
 
-                <h2 class="sub-header">Customer List</h2>
+                <h2 class="sub-header">Account List</h2>
                 <!-- START TABLE - CUSTOMER LIST -->
                 <?php
-                      include('../../../utilities/ui/displayAllCustomers.php');
+                      include('../../../utilities/ui/displayAllAccounts.php');
                 ?>
                 <!-- END TABLE - CUSTOMER LIST --> 
           

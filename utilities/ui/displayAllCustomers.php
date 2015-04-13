@@ -21,6 +21,7 @@
                   <th>Address</th>
                   <th>Zip</th>
                   <th>Phone</th>
+                  <th>Subscriptions</th>
                   <th>Modify</th>
                 </tr>
               </thead>
@@ -38,6 +39,7 @@
                         $address = $result[$index]->Address;
                         $zip = $result[$index]->Zip;
                         $phone = $result[$index]->Phone;
+                        $subscriptions = $result[$index]->PublicationIDList;
                         
                         ?>
                         <tbody>
@@ -47,12 +49,15 @@
                         <td><?php echo $address; ?></td>
                         <td><?php echo $zip; ?></td>
                         <td><?php echo $phone; ?></td>
+                        <td><?php echo '<a href="./Subscriptions?customerID=' . $customerID . '&customerName=' . $name . '">
+                            <span title="Manage Subscriptions" class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a>'; ?></td>
                         <td><?php echo '<a href="" data-toggle="modal" data-target="#modifyCustomerID-' . $customerID . '">
                             <span title="Edit" class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                             <a href="http://elvis.rowan.edu/~middle59/websites/NDS/utilities/database/deleteCustomer.php?id=' . $customerID . '">
                             <span title="Delete" class="glyphicon glyphicon-remove pull-right" aria-hidden="true"></span></a>'?></td>
                         </tr>
 
+                        <!-- Produce a modal UI for editing Customer data-->
                         <?php echo '<div class="modal fade" id="modifyCustomerID-' . $customerID . '" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">';
                         ?>
                             <div class="modal-dialog">
@@ -93,7 +98,7 @@
         }
         else
         {
-                echo "<p>No customers were found in the database.<p>";
+                echo "<td>No customers were found in the database.</td>";
         }
         ?>
                 </tbody>
